@@ -1,8 +1,8 @@
  import React from "react";
- import ReactDOM from "react-dom/client"
+ import ReactDOM from "react-dom/client";
  
 
- import Header from "./src/components/Header"
+ import Header from "./src/components/Header";
  import Body from "./src/components/Body";
 
 

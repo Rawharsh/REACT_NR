@@ -2,11 +2,9 @@
   "name": "react_nr",
   "version": "1.0.0",
   "description": "this is react from NR",
- 
   "scripts": {
-    "start":"parcel index.html",
+    "start": "parcel index.html",
     "build": "parcel build index.html",
-
     "test": "jest"
   },
   "author": "",

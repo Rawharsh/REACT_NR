@@ -38,7 +38,7 @@
 
 .res-card{
     width: 200px;
-    height: 331px;
+    height: 450px;
     /* border: 1px solid black; */
     padding: 5px;
     margin: 10px
@@ -62,4 +62,29 @@
 
 .filter{
     margin: 10px;
+}
+
+.shimmer-container{
+    display: flex;;
+    flex-wrap: wrap;
+}
+
+.shimmer-card{
+    width: 200px;
+    height: 400px;
+    background-color: rgb(215, 213, 213);
+    margin: 20px;
+}
+
+.login{
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.filter{
+    display: flex;
+}
+
+.search input,button{
+    padding: 5px;
 }
