@@ -1,3 +1,9 @@
+body{
+    padding: 0;
+    margin: 0;
+
+}
+
 
 .header{
     border: 1px solid black;
@@ -88,3 +94,114 @@
 .search input,button{
     padding: 5px;
 }
+
+
+
+.caraousal-container{
+    width: 100%; /* Full width container */
+    overflow: hidden; /* Hide overflow content */
+    white-space: nowrap; /*Prevent line break */
+   
+}
+
+.caraousal-container::-webkit-scrollbar{
+    display: none;
+}
+
+.card-div{
+    overflow : hidden;
+    margin-bottom: 20px;
+    display: inline-block; /* Inline-block to prevent wrapping */
+    animation: scroll 15s linear infinite; /* Animation properties */
+}
+
+.card-div img{
+    width: 175px;
+
+}
+
+/* .card-div {
+   
+  } */
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(100%); /* Start at the right */
+    }
+    100% {
+      transform: translateX(-1000%); /* End at the left */
+    }
+  }
+
+.besth1{
+    margin-left: 40px;
+}
+
+
+.bestPlace-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    justify-content: center;
+
+}
+
+.bestPlace-container button{
+   padding: 15px;
+   margin: 10px 15px;
+   width: 20%;
+   border-radius: 10px;
+   border: 0.1px solid grey;
+}
+
+.bestPlace-container button a{
+    text-decoration: none;
+    color: black;
+}
+
+.bestCuisines-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%;
+    justify-content: center;
+
+}
+
+.bestCuisines-container button{
+   padding: 15px;
+   margin: 10px 15px;
+   width: 20%;
+   border-radius: 10px;
+   border: 0.1px solid grey;
+}
+
+.bestCuisines-container button a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+  /* //footer*/
+
+
+  .footer-div{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+   
+  }
+
+  .footer-div div{
+    /* margin: 0px 20px; */
+    
+  }

@@ -1,5 +1,5 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 
 const Header = ()=>{
@@ -7,7 +7,10 @@ const Header = ()=>{
     
      // const btnName = "Login";
       const [btnName,setBtnName] = useState("Login");
-
+      
+      useEffect(()=>{
+            console.log("hello from heaeder");
+      },[btnName]);
 
     return (
            <div className="header">

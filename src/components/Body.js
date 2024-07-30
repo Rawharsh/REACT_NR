@@ -2,13 +2,20 @@ import RestaurantCard from "./RestaurantCard";
 import { useState } from "react";
 import { useEffect } from "react";
 import { resList } from "../utils/mockData";
+import CaraousalCard from "./CaraousalCard";
 import Shimmer from "./Shimmer";
+import BestPlaces from "./BestPlaces";
+import BestCuisines from "./BestPlaces";
 
 const Body = () => {
   //   LOCAL STATE VARIABLE ---SUPER POWERFULL VARIABLE
 
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurant,setFilteredRestaurant] = useState([]);
+
+  const [caraousalData,setCaraousalData] = useState([]);
+  const [bestPlaces,setBestPlaces]=useState([]);
+  const [bestCuisines,setBestCuisines]=useState([]);
 
   const [searchText, setSearchtext] = useState("");
 
@@ -30,20 +37,31 @@ const Body = () => {
 
     const json = await data.json();
 
-    console.log(json.data.cards[4].card.card);
-    console.log(
-      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
-    );
+    // console.log(json.data.cards[4].card.card);
+    // console.log(
+    //   json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+    // );
     // console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants[1].info.id);
     //  console.log(json.data.success.cards[4].gridWidget.gridElements.infoWithStyle.restaurants);
+  
 
     setListOfRestaurants(
-      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurant(
-      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
 
+     setCaraousalData(
+      json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info);
+
+
+      console.log(json?.data?.cards[6]?.card?.card?.brands);
+
+      setBestPlaces(json?.data?.cards[6]?.card?.card?.brands);
+      setBestCuisines(json?.data?.cards[7]?.card?.card?.brands);
+
+    //  setBestPlaces(json?.data?.cards[6]?.card?.card);
 
     // const data1 =  json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
   };
@@ -69,7 +87,7 @@ const Body = () => {
 
               // setListOfRestaurants(data1);
 
-              //filter the restaursnt and update the UI
+              //filter the restaurant and update the UI
              
               console.log(searchText);
           const filteredRestaurant = listOfRestaurants.filter(
@@ -99,11 +117,47 @@ const Body = () => {
           Top Rated Restaurant
         </button>
       </div>
+
+      <div className="caraousal-container">
+         {caraousalData.map((data)=>(
+          
+            <CaraousalCard key={data.id} cardData = {data} />
+
+         ))}
+
+      </div>
+
       <div className="res-container">
         {filteredRestaurant.map((restaurant) => (
           <RestaurantCard key={restaurant.info.id} resData={restaurant.info} />
         ))}
       </div>
+
+    
+      <h1 className="besth1">Best Places to Eat Across Cities</h1>
+      <div className="bestPlace-container">
+       
+       
+        {
+        
+        bestPlaces.map((place) => (
+          <BestPlaces resData={place} />
+        ))}
+      </div>
+
+   
+      <h1 className="besth1" >Best Cuisines Near Me</h1>
+
+      <div className="bestCuisines-container">
+       
+        {
+        
+        bestCuisines.map((cuisine) => (
+          <BestCuisines resData={cuisine} />
+        ))}
+      </div>
+
+
     </div>
   );
 };
