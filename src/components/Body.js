@@ -6,6 +6,7 @@ import CaraousalCard from "./CaraousalCard";
 import Shimmer from "./Shimmer";
 import BestPlaces from "./BestPlaces";
 import BestCuisines from "./BestPlaces";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   //   LOCAL STATE VARIABLE ---SUPER POWERFULL VARIABLE
@@ -43,7 +44,7 @@ const Body = () => {
     // );
     // console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants[1].info.id);
     //  console.log(json.data.success.cards[4].gridWidget.gridElements.infoWithStyle.restaurants);
-  
+   console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
     setListOfRestaurants(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
@@ -105,7 +106,7 @@ const Body = () => {
           className="filter-btn"
           onClick={() => {
             const filterList = listOfRestaurants.filter(
-              (res) => res.info.avgRating > 4.4
+              (res) => res.info.avgRating > 4
             );
          
             // console.log(filterList);
@@ -129,7 +130,7 @@ const Body = () => {
 
       <div className="res-container">
         {filteredRestaurant.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant.info} />
+      <Link  key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id} ><RestaurantCard  resData={restaurant.info} /> </Link>    
         ))}
       </div>
 
