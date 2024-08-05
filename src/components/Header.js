@@ -1,6 +1,7 @@
 import { LOGO_URL } from "../utils/constants";
 import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 const Header = ()=>{
@@ -8,6 +9,8 @@ const Header = ()=>{
     
      // const btnName = "Login";
       const [btnName,setBtnName] = useState("Login");
+
+      const onlineStatus = useOnlineStatus();
    
       //use of useEffect and also the dependency array 
       // useEffect(()=>{
@@ -23,6 +26,9 @@ const Header = ()=>{
                 <div className="nav-items">
 
                       <ul>
+                        <li>
+                          Online staus : {onlineStatus ? "🟢" : "🔴"}
+                        </li>
                             <li>
                               <Link>Home</Link></li>
                             <li>

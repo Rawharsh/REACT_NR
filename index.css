@@ -188,6 +188,11 @@ body{
     color: black;
 }
 
+.user-card {
+    padding: 5px;
+    border: 1px solid black;
+    margin: 10px;
+}
 
 
 

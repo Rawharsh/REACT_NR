@@ -7,9 +7,12 @@ import Shimmer from "./Shimmer";
 import BestPlaces from "./BestPlaces";
 import BestCuisines from "./BestPlaces";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   //   LOCAL STATE VARIABLE ---SUPER POWERFULL VARIABLE
+
+    
 
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurant,setFilteredRestaurant] = useState([]);
@@ -68,6 +71,12 @@ const Body = () => {
   };
 
   //conditional rendering
+
+  const onlineStatus = useOnlineStatus();
+
+   if(onlineStatus===false){
+    return <h1>Looks like you're offline !! Please check your internet connection </h1>
+   }
 
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
